@@ -64,7 +64,7 @@ variable "reservation_capacity_in_gb_per_day" {
 variable "retention_in_days" {
   type        = string
   description = "The number of days for retention, between 7 and 730"
-  default     = 7
+  default     = 30
 }
 
 variable "resource_group_name" {
