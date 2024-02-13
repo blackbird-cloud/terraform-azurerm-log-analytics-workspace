@@ -7,7 +7,7 @@ variable "allow_resource_only_permissions" {
 variable "cmk_for_query_forced" {
   type        = bool
   description = "Whether or not a Customer Managed Key for the query is forced"
-  default     = true
+  default     = false
 }
 
 variable "create_new_workspace" {
@@ -16,21 +16,21 @@ variable "create_new_workspace" {
 }
 
 variable "daily_quota_gb" {
-  type        = string
+  type        = number
   description = "The amount of gb set for max daily ingetion"
-  default     = ""
+  default     = -1
 }
 
 variable "internet_ingestion_enabled" {
   type        = bool
   description = "Whether internet ingestion is enabled"
-  default     = null
+  default     = true
 }
 
 variable "internet_query_enabled" {
   type        = bool
   description = "Whether or not your workspace can be queried from the internet"
-  default     = null
+  default     = true
 }
 
 variable "name" {
@@ -41,7 +41,7 @@ variable "name" {
 variable "sku" {
   type        = string
   description = "The sku of the log analytics workspace"
-  default     = ""
+  default     = "PerGB2018"
 }
 
 variable "local_authentication_disabled" {
@@ -56,15 +56,15 @@ variable "location" {
 }
 
 variable "reservation_capacity_in_gb_per_day" {
-  type        = string
+  type        = number
   description = "The reservation capacity gb per day, can only be used with CapacityReservation SKU"
-  default     = ""
+  default     = null
 }
 
 variable "retention_in_days" {
   type        = string
   description = "The number of days for retention, between 7 and 730"
-  default     = ""
+  default     = 7
 }
 
 variable "resource_group_name" {
